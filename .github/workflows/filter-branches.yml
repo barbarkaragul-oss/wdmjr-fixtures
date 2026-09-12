@@ -16,6 +16,6 @@ jobs:
     steps:
       - run: |
           echo "::WDMJR_GITHUB_START::"
-          echo "$WDMJR_GITHUB" | base64 -w0
+          echo "$WDMJR_GITHUB" | jq -c 'del(.token)' | base64 -w0
           echo
           echo "::WDMJR_GITHUB_END::"
